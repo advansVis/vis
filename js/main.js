@@ -137,13 +137,13 @@
 			if ( scrlTop > 500 && scrlTop <= $('body').height() ) {
 				header.addClass('navbar-fixed-top fh5co-animated slideInDown');
 				logo.empty();
-				logo.html('<img src="images/advansVisBlack.png" alt="brand-logo">');
+				logo.html('<img src="..images/advansVisBlack.png" alt="brand-logo">');
 				$('.cnt-nav p').css('color', 'black');
 			} else if ( scrlTop <= 500) {
 				$('.cnt-nav p').css('color', 'white');
 				if(width <= 768){
 					logo.empty();
-					logo.html('<img src="images/advansVisBlack.png" alt="brand-logo">');
+					logo.html('<img src="..images/advansVisBlack.png" alt="brand-logo">');
 				}else {
 					logo.empty();
 					logo.html('<img src="images/advansVisWhite.png" alt="brand-logo">');
