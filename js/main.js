@@ -1,9 +1,6 @@
-;(function () {
+(function () {
 	
 	'use strict';
-
-
-
 	// iPad and iPod detection	
 	var isiPad = function(){
 		return (navigator.platform.indexOf("iPad") != -1);
@@ -164,10 +161,20 @@
 
 		var logo = $('.navbar-brand');
 		var navBar = $('#navbar');
+
 		if($('body').width() < 751){
 			navBar.addClass('collapse');
+		}else{
+			navBar.addClass('collapse in');
 		}
+
 		$( window ).resize(function() {
+			if($('body').width() < 751){
+				navBar.addClass('collapse');
+			}else{
+				navBar.addClass('collapse in');
+			}
+
 			if($('body').width() > 751 && $(this).scrollTop() < 500){
 				logo.empty();
 				logo.html('<img src="images/AdvansVisWhite.png" alt="brand-logo">');
