@@ -1,14 +1,14 @@
 (function () {
-	
+
 	'use strict';
-	// iPad and iPod detection	
+	// iPad and iPod detection
 	var isiPad = function(){
 		return (navigator.platform.indexOf("iPad") != -1);
 	};
 
 	var isiPhone = function(){
 	    return (
-			(navigator.platform.indexOf("iPhone") != -1) || 
+			(navigator.platform.indexOf("iPhone") != -1) ||
 			(navigator.platform.indexOf("iPod") != -1)
 	    );
 	};
@@ -26,7 +26,7 @@
 		$('body').on('click', '.js-advans-vis-nav-toggle', function(event){
 
 			event.preventDefault();
-
+			this.classList.toggle("change");
 			if ( $('#navbar').is(':visible') ) {
 				$(this).removeClass('menu__item--current');
 			} else {
@@ -43,16 +43,16 @@
 	var goToTop = function() {
 
 		$('.js-gotop').on('click', function(event){
-			
+
 			event.preventDefault();
 
 			$('html, body').animate({
 				scrollTop: $('html').offset().top
 			}, 500);
-			
+
 			return false;
 		});
-	
+
 	};
 
 
@@ -70,7 +70,6 @@
 			   }
 
 		    if ( navbar.is(':visible')) {
-		    	navbar.removeClass('in');
 		    	navbar.attr('aria-expanded', 'false');
 		    	$('.js-advans-vis-nav-toggle').removeClass('menu__item--current');
 		    }
@@ -96,9 +95,9 @@
 	var navigationSection = function() {
 
 		var $section = $('section[data-section]');
-		
+
 		$section.waypoint(function(direction) {
-		  	
+
 		  	if (direction === 'down') {
 		    	navActive($(this.element).data('section'));
 		  	}
@@ -117,7 +116,7 @@
 	};
 
 
-	
+
 
 
 	// Window Scroll
@@ -152,8 +151,8 @@
 						header.removeClass('navbar-fixed-top advans-vis-animated slideInDown slideOutUp');
 					}, 100 );
 				}
-			} 
-			
+			}
+
 		});
 	};
 
@@ -170,9 +169,9 @@
 
 		$( window ).resize(function() {
 			if($('body').width() < 751){
-				navBar.addClass('collapse');
+				navBar.removeClass('in');
 			}else{
-				navBar.addClass('collapse in');
+				navBar.addClass('in');
 			}
 
 			if($('body').width() > 751 && $(this).scrollTop() < 500){
@@ -194,24 +193,24 @@
 		if ( $('#advans-vis-home').length > 0 ) {
 
 			$('#advans-vis-home').waypoint( function( direction ) {
-										
+
 				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
 
 
 					setTimeout(function() {
 						$('#advans-vis-home .to-animate').each(function( k ) {
 							var el = $(this);
-							
+
 							setTimeout ( function () {
 								el.addClass('fadeInUp animated');
 							},  k * 200, 'easeInOutExpo' );
-							
+
 						});
 					}, 200);
 
-					
+
 					$(this.element).addClass('animated');
-						
+
 				}
 			} , { offset: '80%' } );
 
@@ -223,24 +222,24 @@
 		if ( $('#advans-vis-intro').length > 0 ) {
 
 			$('#advans-vis-intro').waypoint( function( direction ) {
-										
+
 				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
 
 
 					setTimeout(function() {
 						$('#advans-vis-intro .to-animate').each(function( k ) {
 							var el = $(this);
-							
+
 							setTimeout ( function () {
 								el.addClass('fadeInRight animated');
 							},  k * 200, 'easeInOutExpo' );
-							
+
 						});
 					}, 1000);
 
-					
+
 					$(this.element).addClass('animated');
-						
+
 				}
 			} , { offset: '80%' } );
 
@@ -249,10 +248,10 @@
 
 	var servicesAnimate = function() {
 		var services = $('#advans-vis-services');
-		if ( services.length > 0 ) {	
+		if ( services.length > 0 ) {
 
 			services.waypoint( function( direction ) {
-										
+
 				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
 
 					var sec = services.find('.to-animate').length,
@@ -261,29 +260,29 @@
 					setTimeout(function() {
 						services.find('.to-animate').each(function( k ) {
 							var el = $(this);
-							
+
 							setTimeout ( function () {
 								el.addClass('fadeInUp animated');
 							},  k * 200, 'easeInOutExpo' );
-							
+
 						});
 					}, 200);
 
 					setTimeout(function() {
 						services.find('.to-animate-2').each(function( k ) {
 							var el = $(this);
-							
+
 							setTimeout ( function () {
 								el.addClass('bounceIn animated');
 							},  k * 200, 'easeInOutExpo' );
-							
+
 						});
 					}, sec);
 
 
-					
+
 					$(this.element).addClass('animated');
-						
+
 				}
 			} , { offset: '80%' } );
 
@@ -292,28 +291,28 @@
 
 	var aboutAnimate = function() {
 		var about = $('#advans-vis-about');
-		if ( about.length > 0 ) {	
+		if ( about.length > 0 ) {
 
 			about.waypoint( function( direction ) {
-										
+
 				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
 
 
 					setTimeout(function() {
 						about.find('.to-animate').each(function( k ) {
 							var el = $(this);
-							
+
 							setTimeout ( function () {
 								el.addClass('fadeInUp animated');
 							},  k * 200, 'easeInOutExpo' );
-							
+
 						});
 					}, 200);
 
-					
+
 
 					$(this.element).addClass('animated');
-						
+
 				}
 			} , { offset: '80%' } );
 
@@ -322,25 +321,25 @@
 
 	var contactAnimate = function() {
 		var contact = $('#advans-vis-contact');
-		if ( contact.length > 0 ) {	
+		if ( contact.length > 0 ) {
 
 			contact.waypoint( function( direction ) {
-										
+
 				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
 
 					setTimeout(function() {
 						contact.find('.to-animate').each(function( k ) {
 							var el = $(this);
-							
+
 							setTimeout ( function () {
 								el.addClass('fadeInUp animated');
 							},  k * 200, 'easeInOutExpo' );
-							
+
 						});
 					}, 200);
 
 					$(this.element).addClass('animated');
-						
+
 				}
 			} , { offset: '80%' } );
 
