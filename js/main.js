@@ -126,25 +126,13 @@
 		$(window).scroll(function(event){
 
 		   	var header = $('#advans-vis-header'),
-				logo = $('.navbar-brand'),
+
 				width = $('body').width(),
 				scrlTop = $(this).scrollTop();
 
 			if ( scrlTop > 500 && scrlTop <= $('body').height() ) {
 				header.addClass('navbar-fixed-top advans-vis-animated slideInDown');
-				logo.empty();
-				logo.html('<img src="images/AdvansVisBlack.png" alt="brand-logo">');
-				$('.cnt-nav p').css('color', 'black');
 			} else if ( scrlTop <= 500) {
-				$('.cnt-nav p').css('color', 'white');
-				if(width <= 768){
-					logo.empty();
-					logo.html('<img src="images/AdvansVisBlack.png" alt="brand-logo">');
-				}else {
-					logo.empty();
-					logo.html('<img src="images/AdvansVisWhite.png" alt="brand-logo">');
-				}
-
 				if ( header.hasClass('navbar-fixed-top') ) {
 					header.addClass('navbar-fixed-top advans-vis-animated slideOutUp');
 					setTimeout(function(){
@@ -173,16 +161,8 @@
 			}else{
 				navBar.addClass('in');
 			}
-
-			if($('body').width() > 751 && $(this).scrollTop() < 500){
-				logo.empty();
-				logo.html('<img src="images/AdvansVisWhite.png" alt="brand-logo">');
-			}else{
-				logo.empty();
-				logo.html('<img src="images/AdvansVisBlack.png" alt="brand-logo">');
-			}
 		});
-	}
+	};
 
 
 
